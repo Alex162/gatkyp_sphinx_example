@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation &mdash; MARVELsim 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorial" href="tutorial.html" />
+    <link rel="prev" title="Overview" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> MARVELsim
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#downlod-from-source">1. Downlod from source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#for-users"><em>For users</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-developers"><em>For developers</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#local-installation">2. Local installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cluster-installation">2. Cluster installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extra-tools">Extra tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html">Extra examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MARVELsim</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Installation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h1>
+<p>In this tutorial we cover how to setup an Python environment that allows you quickly get started to run simulations of MARVEL spectra.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>We recommend to follow the installation instructions below while using <a class="reference external" href="https://python-poetry.org/">Poetry</a> to install MARVELsim. With Poetry you will get a direct freeze of the software which successfully will build across any platform, which particularly becomes handy on computing clusters. Note that <strong>Python version 3.8 - 3.10</strong> have been well tested with Poetry.</p>
+</div>
+<section id="downlod-from-source">
+<h2>1. Downlod from source<a class="headerlink" href="#downlod-from-source" title="Permalink to this headline"></a></h2>
+<p>The first step depends on whether you want to simply use the code or to be a developer.</p>
+<section id="for-users">
+<h3><em>For users</em><a class="headerlink" href="#for-users" title="Permalink to this headline"></a></h3>
+<p>For usage only simply git clone the repository. Move to a desired directory for which you want to download the software on your system and simply:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/IvS-KULeuven/MARVELsim.git
+</pre></div>
+</div>
+</section>
+<section id="for-developers">
+<h3><em>For developers</em><a class="headerlink" href="#for-developers" title="Permalink to this headline"></a></h3>
+<p>If you want to be a developer you need to adhere to our branching strategy being:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>All development is done on the <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch. The <code class="docutils literal notranslate"><span class="pre">master</span></code> branch should alsways be a stable and well-tested branch merged from the <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch, which is tracked with a <a class="reference external" href="https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository">Release tag</a>.</p>
+</div>
+<ul class="simple">
+<li><p>First go to the <a class="reference external" href="https://github.com/IvS-KULeuven/MARVELsim/tree/develop">upstream GitHub MARVELsim repository page</a>. Check that your are indeed on the develop branch page and make a fork of the develop branch (click on the <code class="docutils literal notranslate"><span class="pre">Fork</span></code> bottom located in the top right cornor).</p></li>
+<li><p>Upon a fork creation you are now within your own GitHub repository (named <code class="docutils literal notranslate"><span class="pre">&lt;username&gt;/MARVELsim</span></code>). Now copy the HTTPS link from the green <code class="docutils literal notranslate"><span class="pre">Code</span></code> bottom.</p></li>
+<li><p>Move to a desired directory for which you want to download the software on your system and simply: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">&lt;copied-link-to-fork&gt;</span></code>.</p></li>
+<li><p>To be able to pull the latest version of the upstream software into your local copy, you need to add the upstream to your list of remote repositories by executing the command <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span> <span class="pre">upstream</span> <span class="pre">https://github.com/IvS-KULeuven/MARVELsim.git</span></code>. To check your list of remote repositories, execute the following command in the the installation folder: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code>.</p></li>
+<li><p>A general workflow as a developer looks like:</p>
+<ul>
+<li><p>Make a change to some file(s)</p></li>
+<li><p>Add the change to git: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">&lt;file&gt;</span></code></p></li>
+<li><p>Commit the change: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;&lt;Write</span> <span class="pre">useful</span> <span class="pre">message&gt;</span></code></p></li>
+<li><p>Fetch any changes that may be from collaborators: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span> <span class="pre">upstream</span></code></p></li>
+<li><p>If any changes, merge these into the local repo: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">upstream/develop</span></code></p></li>
+<li><p>If conflict, resolve them by opening each conflicted file and edit (again commit changes)</p></li>
+<li><p>Push commit(s) to your fork: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">develop</span></code></p></li>
+<li><p>Open a pull request on the IvS upstream develop branch (compare forks) and merge.</p></li>
+<li><p>That’s it! Now your collaborators can use your changes!</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="local-installation">
+<h2>2. Local installation<a class="headerlink" href="#local-installation" title="Permalink to this headline"></a></h2>
+<p>We strongly recommend to install Poetry through a <a class="reference external" href="https://docs.conda.io/en/latest/">Conda</a> environment. This is especially handy when installing on a computing cluster since these typically only have limited versions of Python installed by default. While using Conda all Python versions can be installed and thus an exact freeze of the poetry installation can be made. Thus first install Conda (using <a class="reference external" href="https://www.anaconda.com/">Anaconda</a>  or <a class="reference external" href="https://docs.conda.io/projects/miniconda/en/latest/">Miniconda</a>) and the create a new environment called <code class="docutils literal notranslate"><span class="pre">marvelsim</span></code> (here we use Python 3.9):</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>marvelsim<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9
+</pre></div>
+</div>
+<p>Activate your new conda environment:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>marvelsim
+</pre></div>
+</div>
+<p>Since the most commen use case for MARVELsim is to run with High Performace Computing (HPC), it is recommended to use <a class="reference external" href="https://python-poetry.org/">Poetry</a> as your Python package manager. First <a class="reference external" href="https://python-poetry.org/docs/">check how to install Poetry</a>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-sSL<span class="w"> </span>https://install.python-poetry.org<span class="w"> </span><span class="p">|</span><span class="w"> </span>python<span class="w"> </span>-
+</pre></div>
+</div>
+<p>Verify that poetry was installed successfully by typing <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">--version</span></code>. With your <code class="docutils literal notranslate"><span class="pre">marvelsim</span></code> Conda environment activated, and being located in the <code class="docutils literal notranslate"><span class="pre">MARVELsim</span></code> folder, install all packages with:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>poetry<span class="w"> </span>install
+</pre></div>
+</div>
+<p>If you are a developer and want to update the MARVELsim documentation page, simply add the argument <code class="docutils literal notranslate"><span class="pre">--with</span> <span class="pre">docs</span></code> to the above poetry install call.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some users may find that Poetry stalls during the installation procedure. If that happens it is typically caused by a bad <em>keyring</em> setting in Poetry. Simple run the following command and retry the installation:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PYTHON_KEYRING_BACKEND</span><span class="o">=</span>keyring.backends.fail.Keyring
+</pre></div>
+</div>
+</div>
+</section>
+<section id="cluster-installation">
+<h2>2. Cluster installation<a class="headerlink" href="#cluster-installation" title="Permalink to this headline"></a></h2>
+<p>Here we show how to install Poetry on the <a class="reference external" href="https://docs.vscentrum.be/index.html">Vlaams Supercomputer Centrum (VSC)</a>, however, the general workflow can most likely be followed for installing MARVELsim on any cluster.</p>
+<ul>
+<li><p>Your first steps are to create a VSC account and install Miniconda as per the documentation. On a computing cluster you typically want to avoid installing software directly to your <code class="docutils literal notranslate"><span class="pre">$VSC_HOME</span></code> directory since this location typically offers a limited amount of storage memory. Thus, install Miniconda and Poetry (next bullet point) into your <code class="docutils literal notranslate"><span class="pre">$VSC_DATA</span></code> directory. Install Poetry pointing to <code class="docutils literal notranslate"><span class="pre">$VSC_DATA</span></code> directory:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-sSL<span class="w"> </span>https://install.python-poetry.org<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nv">POETRY_HOME</span><span class="o">=</span><span class="nv">$VSC_DATA</span>/poetry<span class="w"> </span>python<span class="w"> </span>-
+</pre></div>
+</div>
+<p>Verify that poetry was installed successfully by typing <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">--version</span></code> and verify that installation location with <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">poetry</span></code>.</p>
+</li>
+<li><p>Create a Conda environment, activate it, and install the Python packages with Poetry:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>marvelsim<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9
+conda<span class="w"> </span>activate<span class="w"> </span>marvelsim
+poetry<span class="w"> </span>install
+</pre></div>
+</div>
+</li>
+<li><p>Lastly we need to create VSC module environment with modules needed to launch a simulation on the GPU nodes. Since the VSC Tier-2 have two main clusters called Genius and wICE. In the following we create a module environment on Genius (<code class="docutils literal notranslate"><span class="pre">cluster/genius/batch</span></code>):</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>intel/2021a
+module<span class="w"> </span>load<span class="w"> </span>CUDA/11.4.1
+</pre></div>
+</div>
+<p>Save the modules into a module environment:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>save<span class="w"> </span>marvelsim_genius
+</pre></div>
+</div>
+<p>Before submitting any MARVELsim job, simply load your module environment with:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>restore<span class="w"> </span>marvelsim_genius
+</pre></div>
+</div>
+<p>Check out how to generate a job script for CPU/CUDA usage in the section of <a class="reference internal" href="performance.html"><span class="doc">Performance</span></a>.</p>
+</li>
+</ul>
+<hr></section>
+<section id="extra-tools">
+<h2>Extra tools<a class="headerlink" href="#extra-tools" title="Permalink to this headline"></a></h2>
+<p>Before starting investigating your output fits files we recomment to install <a class="reference external" href="https://www.eso.org/sci/software/eclipse/eug/eug/node8.html">dfits</a> which is an nice tool to inspect fits headers (e.g. <code class="docutils literal notranslate"><span class="pre">dfits</span> <span class="pre">&lt;filename&gt;.fits</span></code>). On Linux install this packge with:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>qfits-tools
+</pre></div>
+</div>
+<p>In addition, the astronomy software <a class="reference external" href="https://sites.google.com/cfa.harvard.edu/saoimageds9">ds9</a> is an indispensable tool to quickly view your fits images (e.g. <code class="docutils literal notranslate"><span class="pre">ds9</span> <span class="pre">&lt;filename&gt;.fits</span></code>). Install this software with:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>saods9
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tutorial.html" class="btn btn-neutral float-right" title="Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, KU Leuven.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

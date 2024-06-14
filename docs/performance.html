@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Performance &mdash; MARVELsim 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Extra examples" href="extra.html" />
+    <link rel="prev" title="Tutorial" href="tutorial.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> MARVELsim
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Performance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#vsc-information">VSC information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vsc-job-scripts">VSC job scripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#calibration-mode"><em>Calibration mode</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#science-mode"><em>Science mode</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html">Extra examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MARVELsim</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Performance</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/performance.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="performance">
+<span id="id1"></span><h1>Performance<a class="headerlink" href="#performance" title="Permalink to this headline"></a></h1>
+<p>In order to speed up the simulations we here demonstrate how to run MARVELsim on a High Performace Computing (HPC) facility. Generally, since PyEchelle is the natural bottleneck w.r.t. computation time, MARVELsim takes advantage of PyEchelle’s user friendly interface to run simulations on GPUs or normal CPUs. This dramatically decrease the run time, hence, we strongly recommend to checkout <a class="reference external" href="https://stuermer.gitlab.io/pyechelle/benchmark.html">PyEchelle’s documentation on performance</a> for a deeper understanding of what’s going on under the hood in what follows.</p>
+<div class="admonition-step-by-step-guide admonition">
+<p class="admonition-title">Step-by-step guide</p>
+<p>We will use the <a class="reference external" href="https://www.vscentrum.be/getaccess">Vlaams Supercomputer Centrum (VSC)</a> as example on how run the calibration and science mode of MARVELsim. Follow these steps to run simulations on the VSC:</p>
+<ul class="simple">
+<li><p>Checkout the VSC workload manager called <a class="reference external" href="https://slurm.schedmd.com/sbatch.html">SLURM</a></p></li>
+<li><p>If using science mode, generate a RV time series using <code class="docutils literal notranslate"><span class="pre">rv-generator.py</span></code></p></li>
+<li><p>Copy one of the job script examples from the folder <code class="docutils literal notranslate"><span class="pre">MARVELsim/hpc/slurm</span></code></p></li>
+<li><p>Adjust the job script <code class="docutils literal notranslate"><span class="pre">SBATCH</span></code> details (account, resources, etc.)</p></li>
+<li><p>Submit a job to the cluster que (e.g. with <code class="docutils literal notranslate"><span class="pre">sbatch</span></code> on the VSC)</p></li>
+</ul>
+</div>
+<hr><section id="vsc-information">
+<h2>VSC information<a class="headerlink" href="#vsc-information" title="Permalink to this headline"></a></h2>
+<p>Since MARVELsim is being developed by the KU Leuven team we here provide further information for future users with access to the <a class="reference external" href="https://www.vscentrum.be/getaccess">Vlaams Supercomputer Centrum (VSC)</a>:</p>
+<p>To get started using the VSC infrastrutrue we recommend reading:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://vlaams-supercomputing-centrum-vscdocumentation.readthedocs-hosted.com/en/latest/leuven/genius_quick_start.html#submit-to-genius-gpu-node">Genius quickstart guide</a></p></li>
+<li><p><a class="reference external" href="https://vlaams-supercomputing-centrum-vscdocumentation.readthedocs-hosted.com/en/latest/leuven/tier2_hardware/genius_hardware.html">Genius hardware</a></p></li>
+</ul>
+</div></blockquote>
+<p>For the VSC (Genius), further notice should be taken to:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Notice that adding more GPU nodes will not speed up the computations, however, some clusters do provide more GPUs which will decrease the run time.</p></li>
+<li><p>We note that in the following examples, the resources w.r.t. the skylake GPU nodes are the maximum and, hence, the computational times on the VSC stated in the following, are at their minimum.</p></li>
+</ul>
+</div></blockquote>
+<p>Prior to any job submission:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>We recommend to debug and test the computational resources needed for your jobs. Submit a test job (of maximum 20 min) by adding <code class="docutils literal notranslate"><span class="pre">#SBATCH</span> <span class="pre">-p</span> <span class="pre">batch_debug</span></code> to the <code class="docutils literal notranslate"><span class="pre">SBATCH</span></code> job details in the scripts shown below and run a single simulation.</p></li>
+</ul>
+</div></blockquote>
+<hr></section>
+<section id="vsc-job-scripts">
+<span id="performance-calibs"></span><h2>VSC job scripts<a class="headerlink" href="#vsc-job-scripts" title="Permalink to this headline"></a></h2>
+<section id="calibration-mode">
+<h3><em>Calibration mode</em><a class="headerlink" href="#calibration-mode" title="Permalink to this headline"></a></h3>
+<p>The first example (<code class="docutils literal notranslate"><span class="pre">run_calibs.slurm</span></code>) shows a typical job script for running a full set of calibrated data:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
+
+<span class="c1">#SBATCH -A &lt;account&gt;</span>
+<span class="c1">#SBATCH -o &lt;output_name&gt;</span>
+<span class="c1">#SBATCH --mail-user=&lt;email&gt;</span>
+<span class="c1">#SBATCH --mail-type=END</span>
+<span class="c1">#SBATCH --mail-type=FAIL</span>
+<span class="c1">#SBATCH -M genius</span>
+<span class="c1">#SBATCH -p gpu_p100</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --ntasks-per-node=36</span>
+<span class="c1">#SBATCH --gpus-per-node=4</span>
+<span class="c1">#SBATCH --mem-per-cpu=2000M</span>
+<span class="c1">#SBATCH -t 02:00:00</span>
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>
+module<span class="w"> </span>purge
+module<span class="w"> </span>restore<span class="w"> </span>marvelsim
+
+<span class="c1"># Export paths</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">MARVELSIM</span><span class="o">=</span><span class="nv">$VSC_DATA</span>/MARVELsim/marvelsim/marvelsim.py
+<span class="nb">export</span><span class="w"> </span><span class="nv">OUTDIR</span><span class="o">=</span><span class="nv">$VSC_SCRATCH</span>/marvelsim
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$VSC_DATA</span>/miniconda3/bin:<span class="nv">$PATH</span>
+
+<span class="c1"># Activate environment</span>
+<span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span>marvelsim
+
+<span class="c1"># Run simulations</span>
+python<span class="w"> </span><span class="nv">$MARVELSIM</span><span class="w"> </span>--calibs<span class="w"> </span>--cuda<span class="w"> </span>--zip<span class="w"> </span>-o<span class="w"> </span><span class="nv">$OUTDIR</span>
+</pre></div>
+</div>
+<p>Similar to the example given in the <a class="reference internal" href="tutorial.html#tutorial-calibration"><span class="std std-ref">tutorial</span></a>, we here use the off-the-shelf methodology of producing a set of calibrated data by simply invoking the flag <code class="docutils literal notranslate"><span class="pre">--calibs</span></code>. Furthermore we activate the flag <code class="docutils literal notranslate"><span class="pre">--cuda</span></code> and request a single node with 4 GPUs each using 9 CPU slaves (hence 36 in total) to execute the job. We request 2 GB of memory RAM to be on the safe side since a single <span class="math notranslate nohighlight">\(10,560 \times 10,560 \, \text{pixel}\)</span> full frame image occupy 851 Mb. In order to activate your Conda environment the absolute path needs to be exported globally.</p>
+<p>Note that your 5-digit VSC user ID should be used in the above path exportations (mine is 34166 for reference). We here save the output data to the <strong>scratch</strong> file location (in the <code class="docutils literal notranslate"><span class="pre">PROJECT</span></code> folder) in order avoid overflowing our memory on the <strong>data</strong> storage. Notice that it is possible to compress each image on the fly by enabling the flag <code class="docutils literal notranslate"><span class="pre">--zip</span></code> as done in this example. Typical deflation rates per image are around 80%, hence, it is highly recommended to invoke this flag for faster data transfer after end job. For the job script shown above the total run time (a.k.a. walltime) was 2 hours and 40 minutes.</p>
+</section>
+<section id="science-mode">
+<span id="performance-science"></span><h3><em>Science mode</em><a class="headerlink" href="#science-mode" title="Permalink to this headline"></a></h3>
+<p>The following example (<code class="docutils literal notranslate"><span class="pre">run_science.slurm</span></code>) shows a job script for running 300 stellar spectra using a generated RV time series called <code class="docutils literal notranslate"><span class="pre">rv_data.txt</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
+
+<span class="c1">#SBATCH -A &lt;account&gt;</span>
+<span class="c1">#SBATCH -o &lt;output_name&gt;</span>
+<span class="c1">#SBATCH --mail-user=&lt;email&gt;</span>
+<span class="c1">#SBATCH --mail-type=END</span>
+<span class="c1">#SBATCH --mail-type=FAIL</span>
+<span class="c1">#SBATCH -M genius</span>
+<span class="c1">#SBATCH -p gpu_p100</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --ntasks-per-node=36</span>
+<span class="c1">#SBATCH --gpus-per-node=4</span>
+<span class="c1">#SBATCH --mem-per-cpu=2000M</span>
+<span class="c1">#SBATCH -t 05:00:00</span>
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>
+module<span class="w"> </span>purge
+module<span class="w"> </span>restore<span class="w"> </span>marvelsim
+
+<span class="c1"># Export paths</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">MARVELSIM</span><span class="o">=</span><span class="nv">$VSC_DATA</span>/MARVELsim/marvelsim/marvelsim.py
+<span class="nb">export</span><span class="w"> </span><span class="nv">OUTDIR</span><span class="o">=</span><span class="nv">$VSC_SCRATCH</span>/marvelsim
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$VSC_DATA</span>/miniconda3/bin:<span class="nv">$PATH</span>
+
+<span class="c1"># Activate environment</span>
+<span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span>marvelsim
+
+<span class="c1"># Run simulations</span>
+python<span class="w"> </span><span class="nv">$MARVELSIM</span><span class="w"> </span>--science<span class="w"> </span>--data<span class="w"> </span>rv_data.txt<span class="w"> </span>--cuda<span class="w"> </span>--zip<span class="w"> </span>-o<span class="w"> </span><span class="nv">$OUTPUT</span>
+</pre></div>
+</div>
+<p>Akin to the previous job script we here use the same computational resources, however, with the exception of increasing the walltime and the flag <code class="docutils literal notranslate"><span class="pre">--science</span></code>. Notice that adding more nodes will not speed up the computations, however, some cluster do provide more GPUs which will decrease the run time. Moreover, note that the above script simulates a Sun-like star by default (i.e. when no stellar parameters are parsed).</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tutorial.html" class="btn btn-neutral float-left" title="Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="extra.html" class="btn btn-neutral float-right" title="Extra examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, KU Leuven.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
